@@ -1,0 +1,89 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif; /* Default, akan ditimpa oleh kelas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Mencegah scroll */
+    cursor: default; /* Kursor default */
+}
+
+.initial-screen {
+    text-align: center;
+    padding: 20px;
+    opacity: 0; /* Mulai dengan transparan */
+    visibility: hidden; /* Mulai dengan tersembunyi */
+    transition: opacity 1s ease, visibility 1s ease;
+    position: absolute; /* Agar tidak mengganggu layout canvas */
+    z-index: 10; /* Di atas canvas */
+}
+
+.initial-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.name-display {
+    font-family: 'Comic Neue', cursive; /* Font komik */
+    font-size: 8em; /* Ukuran sangat besar */
+    margin-bottom: 5px;
+    letter-spacing: 5px;
+    color: #FFC0CB; /* Pink pastel */
+    text-shadow: 0 0 15px #FF69B4, 0 0 30px #FF1493; /* Glow lebih kuat */
+}
+
+.message-display {
+    font-family: 'Indie Flower', cursive; /* Font tulisan tangan */
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #ADD8E6; /* Light blue */
+}
+
+#openButton {
+    background-color: #FF69B4; /* Pink cerah */
+    color: white;
+    border: 3px solid #FF1493; /* Border pink gelap */
+    padding: 18px 40px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5); /* Shadow */
+}
+
+#openButton:hover {
+    background-color: #FF1493; /* Pink lebih gelap saat hover */
+    transform: translateY(-3px); /* Efek naik sedikit */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.7);
+}
+
+#openButton:active {
+    transform: translateY(0); /* Efek tekan */
+    box-shadow: 0 3px 10px rgba(255, 105, 180, 0.5);
+}
+
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    /* Awalnya tersembunyi, hanya canvas yang akan terlihat setelah tombol diklik */
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.animation-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#mainCanvas {
+    display: block;
+    background-color: black; /* Pastikan canvas latar belakang hitam */
+}
